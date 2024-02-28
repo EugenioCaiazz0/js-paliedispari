@@ -1,18 +1,19 @@
 const inputPal = document.querySelector(`.inputPal`);
 const btnConferma = document.querySelector(`.btnConferma`);
 
-let palStr; 
-
 
 /* acquisito l'input, lo dividiamo in 2 (il resto non ci interessa perchè la lettera di mezzo è neutra nella definizione di palindromia) 
 e verifichiamo che la prima e l'ultima lettera siano uguali, variando il contatore fino ad arrivare al centro della parola */
-/*inizialmente l'avrei fatto come sopra ma è più comodo usare i metodi split e reverse per fare un controllo più efficiente e più leggibile*/
+
+/*in commento il metodo con reverse()*/
 
 btnConferma.addEventListener('click',controlPalindromy())
 
 
 function controlPalindromy() /*L'INPUT NON VIENE RICEVUTO*/
 {
+   /*
+    let palStr; 
     palStr = inputPal.value;
 
     let splitStr = palStr.split(``);
@@ -23,12 +24,49 @@ function controlPalindromy() /*L'INPUT NON VIENE RICEVUTO*/
     console.log(`L'array invertito è` + reverseStr);
     
     if (splitStr == reverseStr) {
-        document.getElementById('#rispostaPalindromia').innerHTML = 
+        document.getElementById('rispostaPalindromia').innerHTML = 
         `<p> La parola inserita è palindroma <p>`;
     } else {
-        document.getElementById('#rispostaPalindromia').innerHTML = 
+        document.getElementById('rispostaPalindromia').innerHTML = 
+        ` <p> La parola inserita non è palindroma <p>`;
+    } */
+
+    let palStr; 
+    palStr = inputPal.value;
+
+    let splitStr = palStr.split(``);
+    indexI = 0;
+    beforeLetter = splitStr[indexI];
+    indexY = splitStr.length;
+    afterLetter = splitStr[indexY];
+
+    let isPal;
+
+    for (i = 0; i < splitStr.length / 2; i++) 
+    {
+        if (beforeLetter == afterLetter) 
+        {
+            indexI++;
+            indexY--;
+            isPal = true;
+        } 
+        else
+        {
+            isPal = false;
+        }
+    }
+
+    if (isPal = true) 
+    {
+        document.getElementById('rispostaPalindromia').innerHTML = 
+        `<p> La parola inserita è palindroma <p>`;
+    }
+    else
+    {
+        document.getElementById('rispostaPalindromia').innerHTML = 
         ` <p> La parola inserita non è palindroma <p>`;
     }
+
 }
 
 
@@ -53,7 +91,7 @@ btnPD.addEventListener('click',function()
     console.log(`Il numero inserito è ` + inputNum);
 
     if ((inputNum < 1) || (inputNum > 5)) {
-        document.getElementById('#rispostaPD').innerHTML = 
+        document.getElementById('rispostaPD').innerHTML = 
         ` <p> Non hai inserito un numero compreso tra 1 e 5 <p>`;
     } 
     else 
@@ -64,21 +102,21 @@ btnPD.addEventListener('click',function()
         if (dispariOPari(sumNum) == `pari`) 
         {
             if (pari == 1) {
-                document.getElementById('#rispostaPD').innerHTML = 
+                document.getElementById('rispostaPD').innerHTML = 
                 `<p> Hai vinto, la somma è pari`
             }
             else if (pari == 0) {
-                document.getElementById('#rispostaPD').innerHTML = 
+                document.getElementById('rispostaPD').innerHTML = 
                 `<p> Hai perso, la somma è dispari`
             }
         } else if (dispariOPari(sumNum) == `dispari`)
         {
             if (dispari == 1) {
-                document.getElementById('#rispostaPD').innerHTML = 
+                document.getElementById('rispostaPD').innerHTML = 
                 `<p> Hai vinto, la somma è dispari`
             }
             else if (dispari == 0) {
-                document.getElementById('#rispostaPD').innerHTML = 
+                document.getElementById('rispostaPD').innerHTML = 
                 `<p> Hai perso, la somma è pari`
             }
         }
