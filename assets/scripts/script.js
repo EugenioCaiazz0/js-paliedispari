@@ -1,7 +1,7 @@
 const inputPal = document.querySelector(`.inputPal`);
 const btnConferma = document.querySelector(`.btnConferma`);
 
-
+let palStr; 
 
 
 /* acquisito l'input, lo dividiamo in 2 (il resto non ci interessa perchè la lettera di mezzo è neutra nella definizione di palindromia) 
@@ -11,9 +11,9 @@ e verifichiamo che la prima e l'ultima lettera siano uguali, variando il contato
 btnConferma.addEventListener('click',controlPalindromy())
 
 
-function controlPalindromy(){
-
-    const palStr = inputPal.value;
+function controlPalindromy() /*L'INPUT NON VIENE RICEVUTO*/
+{
+    palStr = inputPal.value;
 
     let splitStr = palStr.split(``);
     let reverseStr = splitStr.reverse();
@@ -29,5 +29,4 @@ function controlPalindromy(){
         document.getElementById('#rispostaPalindromia').innerHTML = 
         `La parola inserita non è palindroma`;
     }
-
 }
