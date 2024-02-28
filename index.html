@@ -12,13 +12,33 @@
 
 <body>
 
-    <input type="text" class=" m-2 border-2 border-light inputPal" placeholder="Inserire una parola per verificarne la palindromia">
-    <button type="button" class=" m-1 border-1 border-light btnConferma"> Conferma </button>
-    <p id="rispostaPal"></p>
+    <div class="container d-flex flex-column  justify-content-center border-primary flex-wrap bg-light  align-content-center rounded-4  mt-5 " id="snackPal">
+
+        <input type="text" class=" m-2 border-2 border-light w-50 align-self-center  inputPal" placeholder="Inserire una parola per verificarne la palindromia">
+        <button type="button" class=" m-1 border-1 border-light align-self-center w-25 btnConferma"> Conferma </button>
+        
+        <div id="rispostaPal"></div>
+
+    </div>    
     
+    
+    <div class="container d-flex flex-column justify-content-center align-content-center flex-wrap bg-light border-primary  rounded-4 mt-5 " id="snackPD">
+    
+        <input type="text" class=" m-2 border-2 border-light w-50 inputPD" placeholder="Inserire un numero da 1 a 5">
+        
+        <button type="button" class=" m-1 border-1 border-danger bg-danger w-25 align-self-center  btnPari"> Pari </button>
+        <button type="button" class=" m-1 border-1 border-success bg-success w-25 align-self-center btnDispari"> Dispari </button>
+        
+        <button type="button" class=" m-1 border-1 border-light w-25 align-self-center btnPD"> Conferma </button>
+        
+        <div id="rispostaPD"></div>      
+
+    </div>
+
 
     <script src="assets/scripts/script.js"></script>
 
 </body>
 
 </html>
+
